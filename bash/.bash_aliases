@@ -1,3 +1,10 @@
+#
+# Binds gehoeren hier eigentlich nicht hin
+#
+# ctrl+left/right arrows:
+#bind '"\e\x5b\x31\x3b\x35\x44"':backward-word
+#bind '"\e\x5b\x31\x3b\x35\x43"':forward-word
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -55,6 +62,12 @@ function quiet () {
 }
 # Bind `quiet` to [ALT][RETURN]
 bind '"\e\C-j":"\e[1~quiet \e[4~\n"'
+
+# serve current directory as web site
+function serve {
+  port="${1:-3000}"
+  ruby -r webrick -e "s = WEBrick::HTTPServer.new(:Port => $port, :DocumentRoot => Dir.pwd); trap('INT') { s.shutdown }; s.start"
+}
 
 function calc () {
   echo "$*" | bc -l
