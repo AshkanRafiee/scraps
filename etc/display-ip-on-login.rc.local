@@ -1,0 +1,1 @@
+echo "Debian GNU/Linux 6.0 `ip address show eth1 | awk '/inet / {print $2}' | cut -d/ -f1` \l" > /etc/issue
