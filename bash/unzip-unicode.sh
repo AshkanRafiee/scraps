@@ -19,19 +19,16 @@ BIN_CONVMV=/usr/bin/convmv
 # Don't change things beyond this point unless you know what you are doing!
 #
 
+# Initialize remaining variables
+
 SOURCE_FILENAME=
 TARGET_DIRECTORY=.
-TEMP_DIRECTORY=$(mktemp -d $(basename $0).XXXXXX)
 
-cleanup()
-{
-rm -rf $TEMP_DIRECTORY
+cleanup() {
+    rm -rf $TEMP_DIRECTORY
 }
 
-usage()
-{
-cleanup
-
+usage() {
 cat <<EOF
 Usage: $0 [<options> ...] <filename>
 
@@ -92,17 +89,13 @@ else
     exit 1
 fi
 
-LANG=$SOURCE_LOCALE $BIN_UNZIP $SOURCE_FILENAME -d $TEMP_DIRECTORY
-$BIN_CONVMV -r -f $SOURCE_CODEPAGE -t uft8 $TEMP_DIRECTORY
-read -p "Does this look right to you?? " -n 1
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
-    cleanup
-    exit 1
-fi
+# Initialize this variable now so we don't have to clean up after every failed invocation
 
-$BIN_CONVMV --notest -r -f $SOURCE_CODEPAGE -t uft8 $TEMP_DIRECTORY
+TEMP_DIRECTORY=$(mktemp -d $(basename $0).XXXXXX)
 
+# Main program functionality: Unzip and convert
+
+LANG=$SOURCE_LOCALE $BIN_UNZIP -q $SOURCE_FILENAME -d $TEMP_DIRECTORY
+$BIN_CONVMV --notest --qfrom --qto -r -f $SOURCE_CODEPAGE -t utf8 $TEMP_DIRECTORY
 mv $TEMP_DIRECTORY/* $TEMP_DIRECTORY/.* $TARGET_DIRECTORY
-
 cleanup
