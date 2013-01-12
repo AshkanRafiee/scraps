@@ -1,9 +1,10 @@
 #!/bin/bash -i
 
-if [ $# ] ; then
+if [ $# -gt 0 ] ; then
 	# Expand if $1 is an alias
-	if [ $(alias -p | awk -F "[ =]" '{print $2}' | grep -x $1) ] ; then
-		set -- $(alias $1 | awk -F "['']" '{print $2}') "${@:2}"
+	ALIAS=$(alias $1 2>/dev/null | awk -F "['']" '{print $2}')
+	if [ "$ALIAS" ] ; then
+		set -- $ALIAS "${@:2}"
 	fi
 	($@ &) &>/dev/null
 else
