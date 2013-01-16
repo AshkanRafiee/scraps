@@ -7,6 +7,8 @@ if [ $# -gt 0 ] ; then
         set -- $ALIAS "${@:2}"
     fi
     ($@ &) &>/dev/null
+    exit 0
 else
     echo "missing argument"
+    exit 1
 fi
