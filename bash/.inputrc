@@ -1,0 +1,15 @@
+$include /etc/inputrc
+
+#
+# Bind prepend `quiet ` to [ALT][RETURN]
+#
+# The condition is of limited use actually but serves to seperate
+# TTY instances from Gnome Terminal instances for me.
+# There might very well be other VT emulators that ID as `xterm`
+# but use totally different escape codes!
+#
+$if term=xterm
+	"\e\C-j": "\eOHquiet \eOF\n"
+$else
+	"\e\C-m": "\e[1~quiet \e[4~\n"
+$endif
