@@ -13,7 +13,9 @@
 	br = branch
 	co = checkout
     df = diff
-    ds = diff --staged
+    dfa = log @{upstream}.. --patch   ; diff commits ahead
+    dfb = log ..@{upstream} --patch   ; diff commits behind
+    dfs = diff --staged
     lg = log --oneline
     lga = log @{upstream}.. --oneline ; log commits ahead
     lgb = log ..@{upstream} --oneline ; log commits behind
