@@ -1,3 +1,4 @@
+seq = <<EOF
 (1..100).each do |n|
 	if (n % 15).zero?
 		puts "FizzBuzz"
@@ -9,3 +10,5 @@
 		puts n.to_s
 	end
 end
+EOF
+puts RubyVM::InstructionSequence.compile(seq).disassemble
