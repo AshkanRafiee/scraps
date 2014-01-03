@@ -1,0 +1,25 @@
+[user]
+	name = Enno Weichert
+	email = enno.weichert@gmail.com
+[credential]
+	helper = cache
+[github]
+	user = weichert
+[cola]
+	fontdiff = Terminus,10,-1,5,50,0,0,0,0,0
+[alias]
+	st = status --short --branch
+	ci = commit
+	br = branch
+	co = checkout
+    df = diff
+    ds = diff --staged
+    lg = log --oneline
+    lga = log @{upstream}.. --oneline ; log commits ahead
+    lgb = log ..@{upstream} --oneline ; log commits behind
+	who = shortlog --summary --
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
+[color]
+	ui = true
+[core]
+	autocrlf = input
