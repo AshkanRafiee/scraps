@@ -1,4 +1,4 @@
-function extract () {
+extract() {
   if [ -f "$1" ] ; then
     case "$1" in
       *.tar.bz2|*.tbz2)  tar xjf "$1"    ;;
@@ -18,16 +18,16 @@ function extract () {
 }
 
 # serve current directory as web site
-function serve {
+serve() {
   port="${1:-3000}"
   ruby -r webrick -e "s = WEBrick::HTTPServer.new(:Port => $port, :DocumentRoot => Dir.pwd); trap('INT') { s.shutdown }; s.start"
 }
 
-function calc () {
+calc() {
   echo "$*" | bc -l
 }
 
-function mkcd {
+mkcd() {
   if [ ! -n "$1" ]; then
     echo "mkcd: missing operand"
   elif [ -d $1 ]; then
@@ -37,7 +37,7 @@ function mkcd {
   fi
 }
 
-function .. {
+..() {
   for ((i=1;i<=${1-1};i++))
   do
     cd ..
@@ -55,4 +55,3 @@ alias xo='xclip -o'
 
 # enable bash completion for aliases
 complete -o default -o nospace -F _git g
-
