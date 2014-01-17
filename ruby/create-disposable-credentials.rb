@@ -10,9 +10,9 @@ password  = Forgery::Basic.password
 email     = username + "@mailinator.com"
 inbox   = "http://mailinator.com/inbox.jsp?to=" + username
 
-puts "First Name:     " + firstname
-puts "Last Name:      " + lastname
-puts "Username:       " + username
-puts "Email address:  " + email
-puts "Password:       " + password
-puts "Email inbox:    " + inbox
+puts "First Name:    " + firstname
+puts "Last Name:     " + lastname
+puts "Username:      " + username
+puts "Password:      " + password
+puts "Email address: " + email
+puts "Email inbox:   " + inbox
