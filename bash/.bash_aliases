@@ -27,22 +27,6 @@ function calc () {
   echo "$*" | bc -l
 }
 
-#
-# USE RUBY GEM FORGERY FOR THIS IN THE FUTURE !
-#
-#function rnum () {
-#  echo $[ ( $RANDOM % $1 )  + 1 ]
-#}
-#
-#function discred () {
-#  name=$(pwgen -0A $[6+$(rnum 4)] 1)$(rnum 100)
-#
-#  echo 'Name:     '${name}
-#  echo 'Email:    '${name}'@mailinator.com'
-#  echo 'Webmail:  http://www.mailinator.com/maildir.jsp?email='${name}
-#  echo 'Password: '$(pwgen -c -n $[8+$(rnum 8)] 1)
-#}
-
 alias functions='compgen -A function'
 alias rchar='< /dev/urandom tr -dc A-Z-a-z-0-9 | head -c'
 alias e='subl'
