@@ -5,7 +5,7 @@ require "forgery"
 firstname = Forgery::Name.first_name
 lastname  = Forgery::Name.last_name
 username  = (firstname[0] + lastname + rand(10...99).to_s).downcase
-password  = Forgery::Basic.password
+password  = Forgery::Basic.password(:at_least => 8, :at_most => 8)
 
 email     = username + "@mailinator.com"
 inbox   = "http://mailinator.com/inbox.jsp?to=" + username
