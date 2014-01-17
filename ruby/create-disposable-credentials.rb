@@ -8,7 +8,7 @@ username  = (firstname[0] + lastname + rand(10...99).to_s).downcase
 password  = Forgery::Basic.password
 
 email     = username + "@mailinator.com"
-webmail   = "http://www.mailinator.com/maildir.jsp?email=" + username
+webmail   = "http://mailinator.com/inbox.jsp?to=" + username
 
 puts "First Name:     " + firstname
 puts "Last Name:      " + lastname
