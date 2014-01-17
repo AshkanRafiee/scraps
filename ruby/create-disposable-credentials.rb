@@ -4,7 +4,7 @@ require "forgery"
 
 firstname = Forgery::Name.first_name
 lastname  = Forgery::Name.last_name
-username  = Forgery::Internet.user_name
+username  = (firstname[0] + lastname + rand(10...99).to_s).downcase
 password  = Forgery::Basic.password
 
 email     = username + "@mailinator.com"
