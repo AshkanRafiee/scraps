@@ -27,6 +27,16 @@ function calc () {
   echo "$*" | bc -l
 }
 
+function mkcd {
+  if [ ! -n "$1" ]; then
+    echo "mkcd: missing operand"
+  elif [ -d $1 ]; then
+    echo "mkcd: cannot create directory '$1': File exists"
+  else
+    mkdir $1 && cd $1
+  fi
+}
+
 alias functions='compgen -A function'
 alias rchar='< /dev/urandom tr -dc A-Z-a-z-0-9 | head -c'
 alias e='subl'
