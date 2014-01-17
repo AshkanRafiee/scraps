@@ -49,6 +49,8 @@ mkcd() {
   cd "$p"
 }
 
+pcd() { pwd | grep -o / | grep -c /; }
+
 alias functions='compgen -A function'
 alias rchar='< /dev/urandom tr -dc A-Z-a-z-0-9 | head -c'
 alias e='subl'
