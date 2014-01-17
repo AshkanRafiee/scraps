@@ -38,10 +38,15 @@ mkcd() {
 }
 
 ..() {
-  for ((i=1;i<=${1-1};i++))
-  do
-    cd ..
-  done
+  local i p=.. n=$1;
+  if [[ $n != *[!0-9]* ]]; then
+    for ((i=1;i<n;i++))
+    do p+=/..; done
+  else
+    echo "..: operand not an integer"
+    return 1;
+  fi
+  cd "$p"
 }
 
 alias functions='compgen -A function'
