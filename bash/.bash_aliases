@@ -37,16 +37,19 @@ function mkcd {
   fi
 }
 
+function .. {
+  for ((i=1;i<=${1-1};i++))
+  do
+    cd ..
+  done
+}
+
 alias functions='compgen -A function'
 alias rchar='< /dev/urandom tr -dc A-Z-a-z-0-9 | head -c'
 alias e='subl'
 alias g='git'
 alias pu='pushd'
 alias po='popd'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
 alias xi='xclip -i'
 alias xo='xclip -o'
 
