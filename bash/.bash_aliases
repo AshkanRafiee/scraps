@@ -38,9 +38,9 @@ mkcd() {
 }
 
 ..() {
-  local i p=.. n=$1;
-  if [[ $n != *[!0-9]* ]]; then
-    for ((i=1;i<n;i++))
+  local p=..;
+  if [ $1 -eq $1 ] 2>/dev/null; then
+    for ((i=1;i<${1-1};i++))
     do p+=/..; done
   else
     echo "..: operand not an integer"
