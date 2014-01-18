@@ -39,6 +39,7 @@ mkcd() {
 
 ..() {
   local p=..;
+  if [ "$1" = "0" ]; then return 0; fi
   if [ $1 -eq $1 ] 2>/dev/null; then
     for ((i=1;i<${1-1};i++))
     do p+=/..; done
