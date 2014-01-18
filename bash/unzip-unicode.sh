@@ -25,7 +25,7 @@ SOURCE_FILENAME=
 TARGET_DIRECTORY=.
 
 cleanup() {
-    rm -rf $TEMP_DIRECTORY
+	rm -rf $TEMP_DIRECTORY
 }
 
 usage() {
@@ -47,34 +47,34 @@ EOF
 
 while getopts “hd:l:c:v” OPTION
 do
-    case $OPTION in
-        h)
-            usage
-            exit 1
-            ;;
-        d)
-         	TARGET_DIRECTORY=$OPTARG
-             ;;
-        l)
-            SOURCE_LOCALE=$OPTARG
-            ;;
-        c)
-            SOURCE_CODEPAGE=$OPTARG
-            ;;
-        v)
-            VERBOSE=1
-            ;;
-        ?)
-            echo Try \`$0 -h\` for more information.
-            exit
-            ;;
-    esac
+	case $OPTION in
+		h)
+			usage
+			exit 1
+			;;
+		d)
+			TARGET_DIRECTORY=$OPTARG
+			 ;;
+		l)
+			SOURCE_LOCALE=$OPTARG
+			;;
+		c)
+			SOURCE_CODEPAGE=$OPTARG
+			;;
+		v)
+			VERBOSE=1
+			;;
+		?)
+			echo Try \`$0 -h\` for more information.
+			exit
+			;;
+	esac
 done
 
 if [[ -z $TARGET_DIRECTORY ]] || [[ -z $SOURCE_LOCALE ]] || [[ -z $SOURCE_CODEPAGE ]]; then
-    echo $0: option requires an argument
-    echo Try \`$0 -h\` for more information.
-    exit 1
+	echo $0: option requires an argument
+	echo Try \`$0 -h\` for more information.
+	exit 1
 fi
 
 # The remaining argument is treated as the operand <filename>
@@ -82,11 +82,11 @@ fi
 shift $((OPTIND-1))
 
 if [ $# = 1 ]; then
-    SOURCE_FILENAME=$@
+	SOURCE_FILENAME=$@
 else
-    echo $0: requires one file operand
-    echo Try \`$0 -h\` for more information.
-    exit 1
+	echo $0: requires one file operand
+	echo Try \`$0 -h\` for more information.
+	exit 1
 fi
 
 # Initialize this variable now so we don't have to clean up after every failed invocation

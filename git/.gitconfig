@@ -5,18 +5,18 @@
 	ci = commit
 	br = branch
 	co = checkout
-    df = diff
-    dfa = log @{upstream}.. --patch   ; diff commits ahead
-    dfb = log ..@{upstream} --patch   ; diff commits behind
-    dfs = diff --staged
-    lg = log --pretty=format:"%C(yellow)%h\\ %ad%Cgreen%d\\ %Creset%s%Cblue\\ [%cn]" --date=short
-    lga = log @{upstream}.. --pretty=format:"%C(yellow)%h\\ %ad\\ %Creset%s%Cblue\\ [%cn]" --date=short ; log commits ahead
-    lgb = log ..@{upstream} --pretty=format:"%C(yellow)%h\\ %ad\\ %Creset%s%Cblue\\ [%cn]" --date=short ; log commits behind
+	df = diff
+	dfa = log @{upstream}.. --patch   ; diff commits ahead
+	dfb = log ..@{upstream} --patch   ; diff commits behind
+	dfs = diff --staged
+	lg = log --pretty=format:"%C(yellow)%h\\ %ad%Cgreen%d\\ %Creset%s%Cblue\\ [%cn]" --date=short
+	lga = log @{upstream}.. --pretty=format:"%C(yellow)%h\\ %ad\\ %Creset%s%Cblue\\ [%cn]" --date=short ; log commits ahead
+	lgb = log ..@{upstream} --pretty=format:"%C(yellow)%h\\ %ad\\ %Creset%s%Cblue\\ [%cn]" --date=short ; log commits behind
 	who = shortlog --summary --
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	noref = !git fsck --full --no-reflogs --unreachable | grep -oP \"(?<=commit )\\w+\" | git log --stdin --no-walk --pretty=format:\"%C(yellow)%h %ad %Creset%s%Cblue [%cn]\" --date=short
-    type = cat-file -t
-    dump = cat-file -p
+	type = cat-file -t
+	dump = cat-file -p
 [color]
 	ui = true
 [core]
