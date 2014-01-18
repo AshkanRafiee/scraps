@@ -30,10 +30,10 @@ calc() {
 mkcd() {
   if [ ! -n "$1" ]; then
     echo "mkcd: missing operand"
-  elif [ -d $1 ]; then
+  elif [ -d "$1" ]; then
     echo "mkcd: cannot create directory '$1': File exists"
   else
-    mkdir $1 && cd $1
+    mkdir "$@" && cd "${!#}"
   fi
 }
 
