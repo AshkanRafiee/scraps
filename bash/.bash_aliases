@@ -24,7 +24,7 @@ serve() {
 }
 
 calc() {
-  echo "$*" | bc -l
+  echo "$@" | bc -l
 }
 
 mkcd() {
